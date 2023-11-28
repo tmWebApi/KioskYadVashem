@@ -1,0 +1,19 @@
+<div class="logo"></div>
+<div>כניסה למוזיאון</div>
+<div>נא למלא את הפרטים הדרושים ולחץ המשך.</div>
+<div>הכניסה למוזיאון אינה כרוכה בתשלום (כניסה בלבד ללא הדרכה)</div>
+<div>פרטי הסיור</div>
+<form class="example-form">
+    <section>
+        <button mat-raised-button color="primary" id="plus" (click)="addNum()">+</button>
+    </section>
+    <mat-form-field class="example-full-width">
+        <mat-label>מספר מבקרים</mat-label>
+        <input matInput [formControl]="numberVisitorsControl" (keyup.enter)="onEnterKeyPress()"/>
+    </mat-form-field>
+    <section>
+        <button mat-raised-button color="primary" id="minus" (click)="subtractNum()">-</button>
+    </section>
+
+</form>
+<app-schedule></app-schedule>

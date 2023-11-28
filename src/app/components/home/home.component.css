@@ -1,0 +1,59 @@
+.example-form {
+    min-width: 150px;
+    max-width: 100px;
+    width: 100%;
+    margin: auto;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .logo{
+    background-image: url("../../../img/LOGO.jpg");
+    width: 7cm;
+    height: 5cm;
+    background-repeat: no-repeat;
+  }
+  /* #plus{
+    
+    background-repeat: no-repeat;
+
+  }
+  mat-raised-button host::ng-deep{
+    background-image: url("../../../img/plus.png") !important;
+  } */
+  div{
+    text-align: center;
+  }
+/* section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    max-width: 600px;
+  }
+  
+  .example-button-row .mat-mdc-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+   */
