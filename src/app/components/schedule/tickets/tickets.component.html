@@ -1,0 +1,11 @@
+<mat-grid-list cols="{{ this.ticketsArray.length/6}}" rowHeight="6:{{ this.ticketsArray.length/6 > 3 ? 3 :  this.ticketsArray.length/6 > 1 ? 2 : 0.8}}">
+  <mat-grid-tile *ngFor="let item of ticketsArray; let i = index" (click)="orderTicketsEmit(item)">
+    <div
+      [ngClass]="{'valid': item.availablePlaces > numVisitors && !item.isClosed, 'noValid': !(item.availablePlaces > numVisitors && !item.isClosed)}">
+      <p>{{ item.startTime }}</p>
+      <p *ngIf="item.isClosed">סגור</p>
+      <p *ngIf="!item.isClosed && item.availablePlaces > 0">{{ item.availablePlaces }} כרטיסים</p>
+      <p *ngIf="!item.isClosed && item.availablePlaces == 0">אזלו</p>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

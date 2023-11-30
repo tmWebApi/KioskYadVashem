@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,35 +12,51 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
-  numberVisitorsControl = new FormControl(0, [Validators.max(80), Validators.min(0)]);
-  MAXVISITORS = 80;
-  constructor() { }
 
-  ngOnInit(): void {
-    this.numberVisitorsControl.valueChanges.subscribe(newValue => {
-     // console.log('New value:', newValue);
-    });
+  numberVisitorsControl = new FormControl(0, [Validators.required, Validators.max(80), Validators.min(0)]);
+  MAXVISITORS = 80;
+  pressEnter = false;
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.onEnterKeyPress = this.onEnterKeyPress.bind(this);
+
   }
 
+  ngOnInit(): void {
+    document.addEventListener('keydown', this.onEnterKeyPress);
+  }
+
+  ngOnDestroy(): void {
+    document.removeEventListener('keydown', this.onEnterKeyPress);
+  }
+
+  onEnterKeyPress() {
+    this.pressEnter = true;
+    console.log('Enter key pressed', this.pressEnter);
+    this.router.navigate([`home/schedule`,this.numberVisitorsControl.value]);
+    this.pressEnter = false;
+  }
   addNum() {
-    // const num = (Number)(this.numberVisitorsControl.value);
-    // if (num!= null) {
-    //   if (num < this.MAXVISITORS)
-    //     this.numberVisitorsControl.setValue(num + 1)
-    // }
-    console.log('Button clicked');
+    if (!this.pressEnter) {
+      const num = (Number)(this.numberVisitorsControl.value);
+      if (num != null) {
+        if (num < this.MAXVISITORS)
+          this.numberVisitorsControl.setValue(num + 1)
+      }
+    }
+    else
+      this.pressEnter = false
   }
 
   subtractNum() {
-    const num = this.numberVisitorsControl.value;
-    if (num != null) {
-      if (num > 0)
-        this.numberVisitorsControl.setValue(num - 1)
+    if (!this.pressEnter) {
+      const num = this.numberVisitorsControl.value;
+      if (num != null) {
+        if (num > 0)
+          this.numberVisitorsControl.setValue(num - 1)
+      }
     }
-  }
-  onEnterKeyPress() {
-    console.log('Enter key pressed');
-
+    else
+      this.pressEnter = false
   }
 
 }

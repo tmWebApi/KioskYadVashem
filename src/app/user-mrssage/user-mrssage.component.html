@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>!תודה לך על הזמנתך</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>הזמנתך ל {{data.numVisitors}} מבקרים לשעה {{data.time}} נקלטה בהצלחה!</h3>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>ביטול</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>אישור</button>
+</mat-dialog-actions>

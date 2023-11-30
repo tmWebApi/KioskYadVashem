@@ -1,0 +1,22 @@
+mat-grid-list {
+    direction: rtl;
+}
+
+.valid:hover {
+    background-color: rgb(82, 124, 186);
+    border-radius: 20%;
+    height: 100%;
+    width: 100%;
+}
+.valid:focus {
+    background-color: rgb(82, 124, 186);
+    border-radius: 20%;
+    height: 100%;
+    width: 100%;
+}
+
+mat-grid-tile {
+    text-align: center;
+    direction: rtl;
+     
+}

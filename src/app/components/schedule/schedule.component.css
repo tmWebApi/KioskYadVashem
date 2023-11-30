@@ -1,0 +1,10 @@
+.mat-tab-group {
+    margin: auto;
+    margin-bottom: 48px;
+    width: 15cm;
+}
+
+ mat-tab::ng-deep{
+    background-color: white !important;
+    color: rgb(55, 55, 198);
+}
